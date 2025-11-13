@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.biblioteca.biblioteca.domain;
+package biblioteca.biblioteca.domain;
 
 /**
  *
@@ -10,8 +10,11 @@ package com.biblioteca.biblioteca.domain;
  */
 import jakarta.persistence.*; import lombok.*;
 
-@Data @Entity @Table(name="resena",
+@Data 
+@Entity 
+@Table(name="resena",
   uniqueConstraints=@UniqueConstraint(columnNames={"id_usuario","id_libro"}))
+
 public class Resena {
   @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
   private Long id;

@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 
-/**
- *
- * @author Uyuki
- */
-package com.biblioteca.biblioteca.domain;
+package biblioteca.biblioteca.domain;
 
 import jakarta.persistence.*; import lombok.*;
 
@@ -22,11 +14,13 @@ public class Libro {
   private Integer stock;
   private Boolean activo=true;
   private String portadaUrl;
-
-  @ManyToOne @JoinColumn(name="id_genero")
+  private String urlImagenLibro;
+  @ManyToOne 
+  @JoinColumn(name="id_genero")
   private Genero genero;
 
-  @ManyToOne @JoinColumn(name="id_autor")
+  @ManyToOne 
+  @JoinColumn(name="id_autor")
   private Autor autor;
 }
 
