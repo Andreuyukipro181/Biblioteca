@@ -33,4 +33,4 @@ public class CatalogoController {
         model.addAttribute("Totalcatálogos", libro.size());
         return "/catalogo/listado";
     }
-}
+}a 
