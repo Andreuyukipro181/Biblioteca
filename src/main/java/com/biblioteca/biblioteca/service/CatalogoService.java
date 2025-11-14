@@ -1,6 +1,6 @@
-package biblioteca.biblioteca.service;
-import biblioteca.biblioteca.domain.Libro;
-import biblioteca.biblioteca.repository.LibroRepository;
+package com.biblioteca.biblioteca.service;
+import com.biblioteca.biblioteca.domain.Libro;
+import com.biblioteca.biblioteca.repository.LibroRepository;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+@Service
 public class CatalogoService {
     @Autowired
     private LibroRepository libroRepository;
