@@ -5,11 +5,111 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Listado de Libros</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>Pagina que ayuda a localizar en una lista los libros disponibles en el proyecto</div>
+        <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Listado de Libros</title>
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="bg-primary text-white text-center py-4">
+        <h1>Biblioteca Online</h1>
+        <p>Listado de libros disponibles</p>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Inicio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Libros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Agregar Libro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <div class="container my-4">
+        <h2 class="mb-4">Libros Disponibles</h2>
+
+        <div class="row g-4">
+
+            <!-- Tarjeta de libro -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Libro 1">
+                    <div class="card-body">
+                        <h5 class="card-title">El Principito</h5>
+                        <p class="card-text">Autor: Antoine de Saint-Exupéry</p>
+                        <p class="card-text"><small class="text-muted">Categoría: Literatura</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de libro -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Libro 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Cien Años de Soledad</h5>
+                        <p class="card-text">Autor: Gabriel García Márquez</p>
+                        <p class="card-text"><small class="text-muted">Categoría: Realismo mágico</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tarjeta de libro -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Libro 3">
+                    <div class="card-body">
+                        <h5 class="card-title">1984</h5>
+                        <p class="card-text">Autor: George Orwell</p>
+                        <p class="card-text"><small class="text-muted">Categoría: Distopía</small></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <p>&copy; 2025 Biblioteca Online — Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+</body>
+</html>
     </body>
 </html>
