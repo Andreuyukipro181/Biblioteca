@@ -1,115 +1,108 @@
 <!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
-<html>
-    <head>
-        <title>Listado de Libros</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>Pagina que ayuda a localizar en una lista los libros disponibles en el proyecto</div>
-        <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Listado de Libros</title>
-    <!-- Bootstrap CSS -->
-    <link 
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet">
+    <title>Catálogo de libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header -->
-    <header class="bg-primary text-white text-center py-4">
-        <h1>Biblioteca Online</h1>
-        <p>Listado de libros disponibles</p>
-    </header>
+<header class="bg-primary text-white text-center py-3">
+    <h1>Biblioteca Online</h1>
+</header>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Inicio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" th:href="@{/}">Inicio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Libros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Agregar Libro</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contacto</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Contenido principal -->
-    <div class="container my-4">
-        <h2 class="mb-4">Libros Disponibles</h2>
-
-        <div class="row g-4">
-
-            <!-- Tarjeta de libro -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Libro 1">
-                    <div class="card-body">
-                        <h5 class="card-title">El Principito</h5>
-                        <p class="card-text">Autor: Antoine de Saint-Exupéry</p>
-                        <p class="card-text"><small class="text-muted">Categoría: Literatura</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tarjeta de libro -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Libro 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Cien Años de Soledad</h5>
-                        <p class="card-text">Autor: Gabriel García Márquez</p>
-                        <p class="card-text"><small class="text-muted">Categoría: Realismo mágico</small></p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tarjeta de libro -->
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-                    <img src="https://via.placeholder.com/300x200" class="card-img-top" alt="Libro 3">
-                    <div class="card-body">
-                        <h5 class="card-title">1984</h5>
-                        <p class="card-text">Autor: George Orwell</p>
-                        <p class="card-text"><small class="text-muted">Categoría: Distopía</small></p>
-                    </div>
-                </div>
-            </div>
-
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link active" th:href="@{/catalogo/listado}">Libros</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/prestamo/nuevo}">Préstamos</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/perfil}">Mi perfil</a></li>
+                <li class="nav-item"><a class="nav-link" th:href="@{/logout}">Salir</a></li>
+            </ul>
         </div>
     </div>
+</nav>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3 mt-4">
-        <p>&copy; 2025 Biblioteca Online — Todos los derechos reservados.</p>
-    </footer>
+<div class="container my-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Libros disponibles</h2>
+        <span class="badge bg-secondary">
+            Total: <span th:text="${totalLibros}">0</span>
+        </span>
+    </div>
 
-    <!-- Bootstrap JS -->
-    <script 
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
-    </script>
+    <form class="row mb-4" th:action="@{/catalogo/listado}" method="get">
+        <div class="col-md-10">
+            <input type="text" class="form-control" name="q"
+                   placeholder="Buscar por título"
+                   th:value="${query}">
+        </div>
+        <div class="col-md-2 d-grid">
+            <button class="btn btn-primary" type="submit">Buscar</button>
+        </div>
+    </form>
 
+    <div class="row g-4">
+        <div class="col-md-4" th:each="libro : ${libros}">
+            <div class="card h-100 shadow-sm">
+                <img th:if="${libro.urlImagenLibro != null}"
+                     th:src="${libro.urlImagenLibro}"
+                     class="card-img-top" alt="Portada">
+                <img th:if="${libro.urlImagenLibro == null}"
+                     src="https://via.placeholder.com/300x200"
+                     class="card-img-top" alt="Portada">
+
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${libro.titulo}">Título</h5>
+                    <p class="card-text">
+                        Autor:
+                        <span th:text="${libro.autor != null ? libro.autor.nombre : 'Sin autor'}">Autor</span>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Género:
+                            <span th:text="${libro.genero != null ? libro.genero.nombre : 'Sin género'}">Género</span>
+                        </small>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Precio: ₡<span th:text="${libro.precio}">0.00</span>
+                        </small>
+                    </p>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Stock disponible:
+                            <span th:text="${libro.stock}">0</span>
+                        </small>
+                    </p>
+                </div>
+                <div class="card-footer text-end">
+                    <a th:href="@{'/libro/detalle/' + ${libro.id}}" class="btn btn-sm btn-outline-primary">
+                        Ver detalle
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12" th:if="${#lists.isEmpty(libros)}">
+            <div class="alert alert-info text-center">
+                No hay libros registrados en este momento.
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 Biblioteca Online</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
-    </body>
 </html>

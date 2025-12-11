@@ -1,12 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package com.biblioteca.biblioteca.repository;
 
-/**
- *
- * @author Uyuki
- */
-public class PrestamoRepository {
-    
+import com.biblioteca.biblioteca.domain.Prestamo;
+import java.time.LocalDate;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PrestamoRepository extends JpaRepository<Prestamo, Long> {
+
+    List<Prestamo> findByUsuario_Id(Long idUsuario);
+
+    long countByUsuario_IdAndEstado(Long idUsuario, String estado);
+
+    List<Prestamo> findByFechaDevolucionBetween(LocalDate desde, LocalDate hasta);
 }

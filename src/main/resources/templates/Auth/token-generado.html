@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Token generado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h3>Token de recuperación generado</h3>
+    <p>En un sistema real, se enviaría por correo. Para pruebas, úselo en la URL:</p>
+    <pre th:text="${token}">token</pre>
+    <p>
+        <a th:href="@{'/restablecer'(token=${token})}" class="btn btn-success">
+            Ir a restablecer contraseña
+        </a>
+    </p>
+</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 
-package biblioteca.biblioteca.domain;
+package com.biblioteca.biblioteca.domain;
 
 import jakarta.persistence.*; import lombok.*;
 

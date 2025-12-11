@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package com.biblioteca.biblioteca.repository;
 
-/**
- *
- * @author Uyuki
- */
-public class AutorRepository {
-    
+import com.biblioteca.biblioteca.domain.Autor;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AutorRepository extends JpaRepository<Autor, Long> {
+
 }
